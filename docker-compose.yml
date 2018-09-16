@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+    server:
+        build: .
+        ports:
+            - "8080:5000"
+        depends_on:
+            - mongo
+        volumes:
+            - .:/root/code
+    mongo:
+        image: mongo:latest
+        ports:
+            - "27017:27017"
